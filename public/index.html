@@ -66,9 +66,9 @@ header.nav{
 }
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
 .brand{display:flex;align-items:center;gap:11px;font-family:'Space Grotesk';font-weight:700;font-size:1.12rem;letter-spacing:-.01em}
-.brand .mark{
-  width:34px;height:34px;border-radius:10px;display:grid;place-items:center;
-  background:var(--grad-hub);color:#04070f;font-weight:700;font-size:1rem;
+.brand .mark-img{
+  width:38px;height:38px;border-radius:10px;object-fit:contain;
+  background:#0c1424;padding:4px;
   box-shadow:0 0 22px rgba(0,212,255,.35);
 }
 .brand small{color:var(--txt-mute);font-weight:500;font-size:.72rem;letter-spacing:.04em;text-transform:uppercase}
@@ -288,8 +288,8 @@ footer{border-top:1px solid var(--line);padding:52px 0 40px;margin-top:40px}
 <header class="nav">
   <div class="wrap nav-inner">
     <a href="#top" class="brand">
-      <span class="mark">L</span>
-      <span>Chatbots LEAO<br><small>Asistentes con IA</small></span>
+  <img src="/img/logo.png" alt="LEAO" class="mark-img" />
+  <span>Chatbots LEAO<br><small>Asistentes con IA</small></span>
     </a>
     <nav class="nav-links">
       <a href="#galeria">Galería</a>
