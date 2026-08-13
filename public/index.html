@@ -12,6 +12,17 @@
 <meta property="og:description" content="Cada negocio, su propio asistente. Mira la galería de chatbots que hemos construido en LEAO." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://chatbots.leao.com.mx" />
+<meta property="og:site_name" content="LEAO Chatbots" />
+<meta property="og:image" content="https://chatbots.leao.com.mx/og-nova.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Nova, el chatbot de LEAO — asistentes con IA que trabajan 24/7" />
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Chatbots LEAO — Asistentes con IA que trabajan 24/7" />
+<meta name="twitter:description" content="Cada negocio, su propio asistente. Platica con nuestros chatbots." />
+<meta name="twitter:image" content="https://chatbots.leao.com.mx/og-nova.png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -66,9 +77,9 @@ header.nav{
 }
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
 .brand{display:flex;align-items:center;gap:11px;font-family:'Space Grotesk';font-weight:700;font-size:1.12rem;letter-spacing:-.01em}
-.brand .mark-img{
-  width:38px;height:38px;border-radius:10px;object-fit:contain;
-  background:#0c1424;padding:4px;
+.brand .mark{
+  width:34px;height:34px;border-radius:10px;display:grid;place-items:center;
+  background:var(--grad-hub);color:#04070f;font-weight:700;font-size:1rem;
   box-shadow:0 0 22px rgba(0,212,255,.35);
 }
 .brand small{color:var(--txt-mute);font-weight:500;font-size:.72rem;letter-spacing:.04em;text-transform:uppercase}
@@ -288,8 +299,8 @@ footer{border-top:1px solid var(--line);padding:52px 0 40px;margin-top:40px}
 <header class="nav">
   <div class="wrap nav-inner">
     <a href="#top" class="brand">
-  <img src="/img/logo.png" alt="LEAO" class="mark-img" />
-  <span>Chatbots LEAO<br><small>Asistentes con IA</small></span>
+      <span class="mark">L</span>
+      <span>Chatbots LEAO<br><small>Asistentes con IA</small></span>
     </a>
     <nav class="nav-links">
       <a href="#galeria">Galería</a>
