@@ -65,7 +65,9 @@ header.nav{
   border-bottom:1px solid var(--line);
 }
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
-.brand{display:flex;align-items:center;gap:11px;font-family:'Space Grotesk';font-weight:700;font-size:1.12rem;letter-spacing:-.01em}
+.brand{display:flex;align-items:center;gap:11px;font-family:'Space Grotesk';font-weight:700;font-size:1.12rem;letter-spacing:-.01em;color:#5cc8ff;text-decoration:none}
+.brand:visited{color:#5cc8ff}
+.brand:hover{color:#8ad8ff}
 .brand .mark{
   width:34px;height:34px;border-radius:10px;display:grid;place-items:center;
   background:var(--grad-hub);color:#04070f;font-weight:700;font-size:1rem;
@@ -189,10 +191,11 @@ header.nav{
   font-size:.74rem;color:var(--txt-dim);padding:4px 10px;border-radius:7px;
   background:rgba(255,255,255,.04);border:1px solid var(--line);font-weight:500;
 }
-.card-foot{margin-top:16px;display:flex;align-items:center;gap:14px}
+.card-foot{margin-top:16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
 .card-link{
   display:inline-flex;align-items:center;gap:6px;color:var(--accent);
   font-weight:600;font-size:.88rem;text-decoration:none;transition:gap .2s;
+  white-space:nowrap;
 }
 .card-link:hover{gap:10px}
 .card-link.muted{color:var(--txt-mute);pointer-events:none}
@@ -388,7 +391,7 @@ footer{border-top:1px solid var(--line);padding:52px 0 40px;margin-top:40px}
       <p class="desc">Atiende a prospectos de una academia en Toluca y CDMX. Informa sobre el curso de verano, resuelve dudas y dispara el formulario de captura sin pedir datos en el chat.</p>
       <div class="tags"><span class="tag">Web</span><span class="tag">Educación</span><span class="tag">Lead capture</span></div>
       <div class="card-foot">
-        <a class="card-link" href="https://chatbotstarlet-production.up.railway.app" target="_blank" rel="noopener">Probar a Stella →</a>
+        <a class="card-link" href="https://starlet-chatbot-production.up.railway.app" target="_blank" rel="noopener">Probar a Stella →</a>
       </div>
     </article>
 
