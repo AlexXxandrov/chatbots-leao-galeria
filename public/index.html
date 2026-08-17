@@ -3,15 +3,26 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Chatbots LEÃO — Galería de asistentes con IA</title>
-<meta name="description" content="Galería de chatbots con inteligencia artificial hechos por LEÃO. Asistentes que atienden, responden y capturan clientes 24/7 para escuelas, clínicas, comercios y más." />
+<title>Chatbots LEAO — Galería de asistentes con IA</title>
+<meta name="description" content="Galería de chatbots con inteligencia artificial hechos por LEAO. Asistentes que atienden, responden y capturan clientes 24/7 para escuelas, clínicas, comercios y más." />
 <meta name="theme-color" content="#070b16" />
 
 <!-- Open Graph -->
-<meta property="og:title" content="Chatbots LEÃO — Asistentes con IA que trabajan 24/7" />
-<meta property="og:description" content="Cada negocio, su propio asistente. Mira la galería de chatbots que hemos construido en LEÃO." />
+<meta property="og:title" content="Chatbots LEAO — Asistentes con IA que trabajan 24/7" />
+<meta property="og:description" content="Cada negocio, su propio asistente. Mira la galería de chatbots que hemos construido en LEAO." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://chatbots.leao.com.mx" />
+<meta property="og:site_name" content="Chatbots LEAO" />
+<meta property="og:image" content="https://chatbots.leao.com.mx/og-nova.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Nova, el chatbot de LEAO — asistentes con IA que trabajan 24/7" />
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Chatbots LEAO — Asistentes con IA que trabajan 24/7" />
+<meta name="twitter:description" content="Cada negocio, su propio asistente. Platica con nuestros chatbots." />
+<meta name="twitter:image" content="https://chatbots.leao.com.mx/og-nova.png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -65,15 +76,12 @@ header.nav{
   border-bottom:1px solid var(--line);
 }
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
-.brand{display:flex;align-items:center;gap:11px;font-family:'Space Grotesk';font-weight:700;font-size:1.12rem;letter-spacing:-.01em;color:#5cc8ff;text-decoration:none}
-.brand:visited{color:#5cc8ff}
-.brand:hover{color:#8ad8ff}
+.brand{display:flex;align-items:center;gap:11px;font-family:'Space Grotesk';font-weight:700;font-size:1.12rem;letter-spacing:-.01em}
 .brand .mark{
   width:34px;height:34px;border-radius:10px;display:grid;place-items:center;
   background:var(--grad-hub);color:#04070f;font-weight:700;font-size:1rem;
-  box-shadow:0 0 22px rgba(0,212,255,.35);overflow:hidden;
+  box-shadow:0 0 22px rgba(0,212,255,.35);
 }
-.brand .mark img{width:100%;height:100%;object-fit:cover;display:block}
 .brand small{color:var(--txt-mute);font-weight:500;font-size:.72rem;letter-spacing:.04em;text-transform:uppercase}
 .nav-links{display:flex;gap:28px;align-items:center}
 .nav-links a{color:var(--txt-dim);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
@@ -171,11 +179,7 @@ header.nav{
   width:52px;height:52px;border-radius:14px;display:grid;place-items:center;
   font-family:'Space Grotesk';font-weight:700;font-size:1.3rem;color:#04070f;
   background:var(--accent);box-shadow:0 0 24px color-mix(in srgb,var(--accent) 45%,transparent);
-  overflow:hidden;
 }
-.avatar img{width:100%;height:100%;object-fit:cover;display:block}
-.avatar.contain{background:#0c1424;padding:6px}
-.avatar.contain img{object-fit:contain}
 .chip{
   font-family:'JetBrains Mono';font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;
   padding:5px 10px;border-radius:8px;font-weight:500;
@@ -191,16 +195,13 @@ header.nav{
   font-size:.74rem;color:var(--txt-dim);padding:4px 10px;border-radius:7px;
   background:rgba(255,255,255,.04);border:1px solid var(--line);font-weight:500;
 }
-.card-foot{margin-top:16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.card-foot{margin-top:16px;display:flex;align-items:center;gap:14px}
 .card-link{
   display:inline-flex;align-items:center;gap:6px;color:var(--accent);
   font-weight:600;font-size:.88rem;text-decoration:none;transition:gap .2s;
-  white-space:nowrap;
 }
 .card-link:hover{gap:10px}
 .card-link.muted{color:var(--txt-mute);pointer-events:none}
-.card-link.wa{color:#25d366}
-.card-foot.multi{flex-wrap:wrap;gap:10px 18px}
 
 /* featured LEO wide card */
 .featured{display:grid;grid-template-columns:1.1fr 1fr;gap:0;padding:0;overflow:hidden}
@@ -298,8 +299,8 @@ footer{border-top:1px solid var(--line);padding:52px 0 40px;margin-top:40px}
 <header class="nav">
   <div class="wrap nav-inner">
     <a href="#top" class="brand">
-      <span class="mark"><img src="/img/nova.gif" alt="Nova" onerror="this.parentElement.textContent='L'" /></span>
-      <span>Chatbots LEÃO<br><small>Asistentes con IA</small></span>
+      <span class="mark"><img src="/img/leo.png" alt="Leo" onerror="this.style.display='none';this.parentElement.textContent='L'" /></span>
+      <span>Chatbots LEAO<br><small>Asistentes con IA</small></span>
     </a>
     <nav class="nav-links">
       <a href="#galeria">Galería</a>
@@ -314,7 +315,7 @@ footer{border-top:1px solid var(--line);padding:52px 0 40px;margin-top:40px}
 
 <!-- HERO -->
 <section class="hero wrap">
-  <span class="eyebrow reveal"><span class="dot"></span> Hechos en LEÃO · Toluca, México</span>
+  <span class="eyebrow reveal"><span class="dot"></span> Hechos en LEAO · Toluca, México</span>
   <h1 class="reveal">Cada negocio,<br><span class="grad">su propio asistente con IA</span></h1>
   <p class="lead reveal">Diseñamos y programamos chatbots que atienden, responden y capturan clientes las 24 horas. Esta es la galería de los que ya trabajan para negocios reales.</p>
   <div class="hero-btns reveal">
@@ -322,7 +323,7 @@ footer{border-top:1px solid var(--line);padding:52px 0 40px;margin-top:40px}
     <a href="#contacto" class="btn btn-ghost">Quiero uno para mi negocio</a>
   </div>
   <div class="stats reveal">
-    <div class="stat"><div class="num"><span class="g">7</span></div><div class="lbl">Chatbots creados</div></div>
+    <div class="stat"><div class="num"><span class="g">6</span></div><div class="lbl">Chatbots creados</div></div>
     <div class="stat"><div class="num"><span class="g">4</span></div><div class="lbl">Canales: Web · WhatsApp · Messenger</div></div>
     <div class="stat"><div class="num"><span class="g">24/7</span></div><div class="lbl">Atención sin descanso</div></div>
     <div class="stat"><div class="num"><span class="g">100%</span></div><div class="lbl">A la medida del negocio</div></div>
@@ -339,90 +340,84 @@ footer{border-top:1px solid var(--line);padding:52px 0 40px;margin-top:40px}
 
   <div class="bento">
 
-    <!-- NOVA destacado (primero: aclara dudas e informa sobre chatbots) -->
-    <article class="card featured reveal" style="--accent:#39ff14">
+    <!-- LEO destacado -->
+    <article class="card featured reveal" style="--accent:var(--leao-fire)">
       <div class="fx-body">
         <div class="card-top">
-          <div class="avatar"><img src="/img/nova.gif" alt="Nova" onerror="this.style.display='none';this.parentElement.textContent='✦'" /></div>
-          <span class="chip">Empieza aquí · Demo en vivo</span>
+          <div class="avatar" style="background:linear-gradient(135deg,#ff5b2e,#00d4ff)">L</div>
+          <span class="chip">En vivo · Insignia</span>
         </div>
-        <h3>Nova</h3>
-        <div class="role">Tu guía sobre los chatbots con IA</div>
-        <p class="desc">¿No sabes por dónde empezar? Habla con Nova. Te aclara todas las dudas sobre qué es un chatbot, qué puede hacer por tu negocio y en qué industrias se aplica. Es la mejor forma de entender el servicio antes de pedir el tuyo.</p>
+        <h3>Leo</h3>
+        <div class="role">Asistente oficial de LEAO</div>
+        <p class="desc">El chatbot que representa a la empresa. Explica servicios, promueve la app de finanzas TeEscucho y captura prospectos con un flujo guiado a prueba de fallos. Atiende por Web, WhatsApp y Messenger, y todo cae en un panel con gráficas en tiempo real.</p>
         <div class="tags">
-          <span class="tag">Web</span><span class="tag">Educativo</span><span class="tag">Avatar animado</span><span class="tag">Resuelve tus dudas</span>
+          <span class="tag">Web</span><span class="tag">WhatsApp</span><span class="tag">Messenger</span>
+          <span class="tag">Captura de leads</span><span class="tag">Panel + gráficas</span>
         </div>
         <div class="card-foot">
-          <a class="card-link" href="https://nova-production-80d3.up.railway.app/" target="_blank" rel="noopener">Habla con Nova →</a>
+          <a class="card-link" href="https://chatbotsiilleao-production.up.railway.app" target="_blank" rel="noopener">Probar a Leo →</a>
         </div>
       </div>
       <div class="fx-side">
-        <div class="metric"><b>¿Qué es</b><span>un chatbot con IA?</span></div>
-        <div class="metric"><b>¿Para qué</b><span>sirve en mi negocio?</span></div>
-        <div class="metric"><b>¿Cuánto</b><span>cuesta y cómo se hace?</span></div>
-        <div class="metric"><b>Pregúntale</b><span>lo que quieras saber</span></div>
+        <div class="metric"><b>3</b><span>canales conectados</span></div>
+        <div class="metric"><b>3 capas</b><span>de respaldo anti-caídas</span></div>
+        <div class="metric"><b>Sheets</b><span>como fuente de verdad</span></div>
+        <div class="metric"><b>CSV</b><span>exportación con un clic</span></div>
       </div>
     </article>
 
-    <!-- LEO (insignia) -->
-    <article class="card md reveal" style="--accent:var(--leao-fire)">
+    <!-- NOVA -->
+    <article class="card md reveal" style="--accent:#39ff14">
       <div class="card-top">
-        <div class="avatar"><img src="/img/leo.png" alt="Leo" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#ff5b2e,#00d4ff)';this.parentElement.textContent='L'" /></div>
-        <span class="chip">En vivo · Insignia</span>
+        <div class="avatar">✦</div>
+        <span class="chip">Demo en vivo</span>
       </div>
-      <h3>Leo</h3>
-      <div class="role">Asistente oficial de LEÃO</div>
-      <p class="desc">El chatbot que representa a la empresa. Explica servicios, promueve la app de finanzas TeEscucho y captura prospectos con un flujo guiado. Atiende por Web, WhatsApp y Messenger, todo en un panel en tiempo real.</p>
-      <div class="tags"><span class="tag">Web</span><span class="tag">WhatsApp</span><span class="tag">Messenger</span></div>
-      <div class="card-foot multi">
-        <a class="card-link" href="https://chatbotsiilleao-production.up.railway.app" target="_blank" rel="noopener">Probar en web →</a>
-        <a class="card-link wa" href="https://wa.me/527225596407?text=Hola%20Leo" target="_blank" rel="noopener">Pruébalo en WhatsApp →</a>
+      <h3>Nova</h3>
+      <div class="role">Demostración del servicio de chatbots</div>
+      <p class="desc">El vendedor de la casa. Explica qué es un chatbot, qué puede hacer y en qué industrias se aplica. Tras conversar, invita al visitante a dejar sus datos.</p>
+      <div class="tags"><span class="tag">Web</span><span class="tag">Educativo</span><span class="tag">Avatar animado</span></div>
+      <div class="card-foot">
+        <a class="card-link" href="https://nova-production-80d3.up.railway.app/" target="_blank" rel="noopener">Conocer a Nova →</a>
       </div>
     </article>
 
     <!-- STELLA -->
     <article class="card md reveal" style="--accent:#ff4fd8">
       <div class="card-top">
-        <div class="avatar"><img src="/img/stella.png" alt="Stella" onerror="this.style.display='none';this.parentElement.textContent='S'" /></div>
+        <div class="avatar">S</div>
         <span class="chip">En producción</span>
       </div>
       <h3>Stella</h3>
       <div class="role">Academia Starlet · Modelaje y desarrollo personal</div>
       <p class="desc">Atiende a prospectos de una academia en Toluca y CDMX. Informa sobre el curso de verano, resuelve dudas y dispara el formulario de captura sin pedir datos en el chat.</p>
       <div class="tags"><span class="tag">Web</span><span class="tag">Educación</span><span class="tag">Lead capture</span></div>
-      <div class="card-foot">
-        <a class="card-link" href="https://starlet-chatbot-production.up.railway.app" target="_blank" rel="noopener">Probar a Stella →</a>
-      </div>
+      <div class="card-foot"><span class="card-link muted">Proyecto de cliente</span></div>
     </article>
 
     <!-- INESO -->
     <article class="card md reveal" style="--accent:#3d7bff">
       <div class="card-top">
-        <div class="avatar contain"><img src="/img/ineso.png" alt="INESO" onerror="this.style.display='none';this.parentElement.classList.remove('contain');this.parentElement.style.background='#0f2d5e';this.parentElement.style.color='#fff';this.parentElement.textContent='IN'" /></div>
+        <div class="avatar" style="background:#0f2d5e;color:#fff">IN</div>
         <span class="chip">En producción</span>
       </div>
       <h3>Asistente INESO</h3>
       <div class="role">Instituto de Especialidades Odontológicas</div>
       <p class="desc">Guía a interesados entre cinco programas —ortodoncia, higienista dental, BLS y más— con reconocimiento inteligente de nombres de cursos, y registra cada prospecto en su panel.</p>
       <div class="tags"><span class="tag">Web</span><span class="tag">Salud / Educación</span><span class="tag">5 programas</span></div>
-      <div class="card-foot">
-        <a class="card-link" href="https://sienna-louse-339605.hostingersite.com/" target="_blank" rel="noopener">Probar a INESO →</a>
-      </div>
+      <div class="card-foot"><span class="card-link muted">Proyecto de cliente</span></div>
     </article>
 
     <!-- TEESCUCHO (producto propio) -->
     <article class="card md reveal" style="--accent:#00e0a4">
       <div class="card-top">
-        <div class="avatar contain"><img src="/img/teescucho.png" alt="TeEscucho" onerror="this.style.display='none';this.parentElement.classList.remove('contain');this.parentElement.textContent='Te'" /></div>
+        <div class="avatar">Te</div>
         <span class="chip">Producto propio</span>
       </div>
       <h3>TeEscucho</h3>
       <div class="role">Finanzas personales por chat</div>
       <p class="desc">No solo responde: registra tus gastos e ingresos con solo escribirlos por Telegram o WhatsApp. La IA entiende el mensaje y lo convierte en un movimiento. «Tú hablas, yo te escucho».</p>
       <div class="tags"><span class="tag">Telegram</span><span class="tag">WhatsApp</span><span class="tag">Captura con LLM</span></div>
-      <div class="card-foot">
-        <a class="card-link" href="https://teescucho.app/" target="_blank" rel="noopener">Probar TeEscucho →</a>
-      </div>
+      <div class="card-foot"><span class="card-link muted">App de LEAO</span></div>
     </article>
 
     <!-- PRÓXIMO / a la medida -->
@@ -491,8 +486,8 @@ footer{border-top:1px solid var(--line);padding:52px 0 40px;margin-top:40px}
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <div class="brand"><span class="mark"><img src="/img/nova.gif" alt="Nova" onerror="this.parentElement.textContent='L'" /></span><span>Chatbots LEÃO</span></div>
-        <p>Soluciones Integrales en Informática LEÃO. Diseñamos asistentes con IA que trabajan por tu negocio, desde Toluca para todo México.</p>
+        <div class="brand"><span class="mark"><img src="/img/leo.png" alt="Leo" onerror="this.style.display='none';this.parentElement.textContent='L'" /></span><span>Chatbots LEAO</span></div>
+        <p>Soluciones Integrales en Informática LEAO. Diseñamos asistentes con IA que trabajan por tu negocio, desde Toluca para todo México.</p>
       </div>
       <div class="foot-col">
         <h5>Explorar</h5>
@@ -509,7 +504,7 @@ footer{border-top:1px solid var(--line);padding:52px 0 40px;margin-top:40px}
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 LEÃO · Soluciones Integrales en Informática</span>
+      <span>© 2026 LEAO · Soluciones Integrales en Informática</span>
       <span>Toluca, México · Hecho con IA de Claude</span>
     </div>
   </div>
