@@ -80,8 +80,9 @@ header.nav{
 .brand .mark{
   width:34px;height:34px;border-radius:10px;display:grid;place-items:center;
   background:var(--grad-hub);color:#04070f;font-weight:700;font-size:1rem;
-  box-shadow:0 0 22px rgba(0,212,255,.35);
+  box-shadow:0 0 22px rgba(0,212,255,.35);overflow:hidden;flex-shrink:0;
 }
+.brand .mark img{width:100%;height:100%;object-fit:cover;display:block}
 .brand small{color:var(--txt-mute);font-weight:500;font-size:.72rem;letter-spacing:.04em;text-transform:uppercase}
 .nav-links{display:flex;gap:28px;align-items:center}
 .nav-links a{color:var(--txt-dim);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
