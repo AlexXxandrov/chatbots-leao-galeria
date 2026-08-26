@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Panel de leads — Demo · Chatbots LEÃO</title>
+<meta name="robots" content="noindex" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root{
+  --bg:#070b16;--bg-soft:#0c1424;--card:#0f1a2e;--card-hi:#13203a;
+  --line:rgba(255,255,255,.08);--line-hi:rgba(255,255,255,.16);
+  --txt:#eaf0fb;--txt-dim:#8ea0bd;--txt-mute:#5d6f8e;
+  --cyan:#00d4ff;--purple:#7b5bff;--fire:#ff5b2e;--green:#39ff14;--amber:#ffb020;
+  --grad:linear-gradient(120deg,#00d4ff,#7b5bff 55%,#ff5b2e);
+  --radius:18px;--ease:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--txt);font-family:'Inter',system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100vh}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(680px 460px at 12% -8%,rgba(0,212,255,.10),transparent 60%),radial-gradient(680px 460px at 92% 4%,rgba(123,91,255,.12),transparent 60%)}
+.wrap{max-width:1200px;margin:0 auto;padding:0 22px;position:relative;z-index:1}
+
+/* demo banner */
+.demo-banner{
+  position:relative;z-index:2;text-align:center;font-size:.86rem;font-weight:600;
+  padding:9px 16px;background:linear-gradient(90deg,rgba(0,212,255,.16),rgba(123,91,255,.18),rgba(255,91,46,.14));
+  border-bottom:1px solid var(--line-hi);color:var(--txt)}
+.demo-banner span{color:var(--cyan)}
+
+/* header */
+header{border-bottom:1px solid var(--line);background:rgba(7,11,22,.7);backdrop-filter:blur(12px);position:sticky;top:0;z-index:20}
+.head-inner{display:flex;align-items:center;justify-content:space-between;height:66px}
+.brand{display:flex;align-items:center;gap:11px;font-family:'Space Grotesk';font-weight:700;font-size:1.05rem}
+.brand .mark{width:34px;height:34px;border-radius:10px;background:var(--grad);display:grid;place-items:center;color:#04070f;font-weight:700;box-shadow:0 0 20px rgba(0,212,255,.35)}
+.brand small{display:block;color:var(--txt-mute);font-size:.72rem;font-weight:500;letter-spacing:.04em;text-transform:uppercase}
+.head-right{display:flex;align-items:center;gap:14px}
+.live{display:inline-flex;align-items:center;gap:8px;font-size:.82rem;color:var(--txt-dim);font-weight:500}
+.live .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.btn-export{padding:8px 16px;border-radius:10px;background:var(--txt);color:#070b16;font-weight:600;font-size:.84rem;border:none;cursor:pointer;transition:transform .2s var(--ease)}
+.btn-export:hover{transform:translateY(-1px)}
+
+/* page title */
+.page-head{padding:34px 0 24px}
+.page-head h1{font-family:'Space Grotesk';font-weight:700;font-size:1.9rem;letter-spacing:-.02em}
+.page-head p{color:var(--txt-dim);font-size:.96rem;margin-top:4px}
+
+/* KPI cards */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:26px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;position:relative;overflow:hidden;transition:border-color .3s,transform .3s var(--ease)}
+.kpi:hover{border-color:var(--line-hi);transform:translateY(-2px)}
+.kpi::after{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent)}
+.kpi .lbl{color:var(--txt-mute);font-size:.8rem;font-weight:500;text-transform:uppercase;letter-spacing:.05em;display:flex;align-items:center;gap:8px}
+.kpi .val{font-family:'Space Grotesk';font-weight:700;font-size:2.2rem;letter-spacing:-.02em;margin-top:8px}
+.kpi .delta{font-size:.8rem;font-weight:600;margin-top:4px}
+.kpi .delta.up{color:var(--green)}
+.kpi .delta.flat{color:var(--txt-mute)}
+
+/* grid charts */
+.charts{display:grid;grid-template-columns:1.6fr 1fr;gap:16px;margin-bottom:26px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+.panel h3{font-family:'Space Grotesk';font-weight:600;font-size:1.05rem;margin-bottom:2px}
+.panel .sub{color:var(--txt-mute);font-size:.82rem;margin-bottom:18px}
+.chart-box{position:relative;height:260px}
+.chart-box.sm{height:240px}
+
+/* table */
+.table-panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-bottom:40px}
+.table-head{display:flex;align-items:center;justify-content:space-between;padding:20px 22px;border-bottom:1px solid var(--line)}
+.table-head h3{font-family:'Space Grotesk';font-weight:600;font-size:1.05rem}
+.table-head .filters{display:flex;gap:8px}
+.chip{padding:6px 13px;border-radius:8px;font-size:.8rem;font-weight:500;background:rgba(255,255,255,.04);border:1px solid var(--line);color:var(--txt-dim);cursor:pointer;transition:all .2s}
+.chip.active{background:rgba(0,212,255,.12);border-color:rgba(0,212,255,.4);color:var(--cyan)}
+.tbl-scroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.9rem}
+th{text-align:left;padding:13px 22px;color:var(--txt-mute);font-weight:600;font-size:.76rem;text-transform:uppercase;letter-spacing:.05em;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:14px 22px;border-bottom:1px solid var(--line);white-space:nowrap}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:rgba(255,255,255,.02)}
+.lead-name{font-weight:600;color:var(--txt)}
+.lead-name small{display:block;color:var(--txt-mute);font-weight:400;font-size:.8rem}
+.tag{display:inline-block;padding:4px 11px;border-radius:7px;font-size:.76rem;font-weight:600}
+.tag.web{background:rgba(0,212,255,.12);color:var(--cyan)}
+.tag.wa{background:rgba(37,211,102,.14);color:#3ddc84}
+.tag.msg{background:rgba(123,91,255,.14);color:#a892ff}
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:.82rem;font-weight:600}
+.badge.si{color:var(--green)}
+.badge.no{color:var(--txt-mute)}
+.badge .d{width:7px;height:7px;border-radius:50%;background:currentColor}
+.mono{font-family:'JetBrains Mono';font-size:.84rem;color:var(--txt-dim)}
+
+footer{text-align:center;padding:26px 0 40px;color:var(--txt-mute);font-size:.84rem;border-top:1px solid var(--line)}
+footer a{color:var(--cyan);text-decoration:none}
+
+@media(max-width:900px){
+  .kpis{grid-template-columns:1fr 1fr}
+  .charts{grid-template-columns:1fr}
+}
+@media(max-width:520px){
+  .kpis{grid-template-columns:1fr}
+  .head-right .live{display:none}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="demo-banner">🔎 Vista de <span>demostración</span> — datos de ejemplo. Así se vería el panel donde administras los prospectos de tu chatbot.</div>
+
+<header>
+  <div class="wrap head-inner">
+    <div class="brand">
+      <span class="mark">L</span>
+      <span>Panel de leads<small>Chatbots LEÃO</small></span>
+    </div>
+    <div class="head-right">
+      <span class="live"><span class="dot"></span> Actualizado hace 8 s</span>
+      <button class="btn-export" onclick="exportCSV()">Exportar CSV</button>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="page-head">
+    <h1>Prospectos capturados</h1>
+    <p>Cada persona que dejó sus datos en el chatbot aparece aquí en tiempo real.</p>
+  </div>
+
+  <!-- KPIs -->
+  <div class="kpis">
+    <div class="kpi" style="--accent:var(--cyan)">
+      <div class="lbl">Total de leads</div>
+      <div class="val">247</div>
+      <div class="delta up">▲ 18% vs. mes anterior</div>
+    </div>
+    <div class="kpi" style="--accent:var(--green)">
+      <div class="lbl">Hoy</div>
+      <div class="val">9</div>
+      <div class="delta up">▲ 3 más que ayer</div>
+    </div>
+    <div class="kpi" style="--accent:var(--purple)">
+      <div class="lbl">Esta semana</div>
+      <div class="val">41</div>
+      <div class="delta up">▲ 12% vs. semana pasada</div>
+    </div>
+    <div class="kpi" style="--accent:var(--fire)">
+      <div class="lbl">Interesados</div>
+      <div class="val">63%</div>
+      <div class="delta flat">156 de 247 dijeron "sí"</div>
+    </div>
+  </div>
+
+  <!-- Charts -->
+  <div class="charts">
+    <div class="panel">
+      <h3>Leads por día</h3>
+      <div class="sub">Últimos 14 días</div>
+      <div class="chart-box"><canvas id="lineChart"></canvas></div>
+    </div>
+    <div class="panel">
+      <h3>Canal de origen</h3>
+      <div class="sub">De dónde llegan tus prospectos</div>
+      <div class="chart-box sm"><canvas id="donutChart"></canvas></div>
+    </div>
+  </div>
+
+  <!-- Table -->
+  <div class="table-panel">
+    <div class="table-head">
+      <h3>Últimos prospectos</h3>
+      <div class="filters">
+        <span class="chip active">Todos</span>
+        <span class="chip">Interesados</span>
+        <span class="chip">Web</span>
+        <span class="chip">WhatsApp</span>
+      </div>
+    </div>
+    <div class="tbl-scroll">
+      <table id="leadsTable">
+        <thead>
+          <tr><th>Prospecto</th><th>Teléfono</th><th>Interés</th><th>Canal</th><th>¿Interesado?</th><th>Fecha</th></tr>
+        </thead>
+        <tbody id="leadsBody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<footer>
+  Panel de demostración · <a href="https://chatbots.leao.com.mx">chatbots.leao.com.mx</a> · Soluciones Integrales en Informática LEÃO
+</footer>
+
+<script>
+// ---- Datos ficticios realistas ----
+const leads = [
+  ["Mariana Gutiérrez","55 4821 9033","Chatbot para clínica dental","web","si","Hoy, 10:42"],
+  ["Roberto Ávila","722 318 5570","Automatizar WhatsApp del negocio","wa","si","Hoy, 09:58"],
+  ["Fernanda Ríos","55 7729 4410","Info para restaurante","web","no","Hoy, 09:15"],
+  ["Grupo Delta Inmobiliaria","722 905 1188","Asistente para bienes raíces","msg","si","Hoy, 08:33"],
+  ["Luis Ordóñez","55 3390 7742","Chatbot para gimnasio","wa","si","Ayer, 20:11"],
+  ["Academia Lumen","722 664 2093","Captar alumnos por la web","web","si","Ayer, 18:47"],
+  ["Patricia Nava","55 8801 6634","Solo información","web","no","Ayer, 17:20"],
+  ["Ferretería El Tornillo","722 447 9910","Atención automática","wa","si","Ayer, 15:05"],
+  ["Dr. Emilio Cárdenas","55 2214 8876","Agendar citas médicas","msg","si","Ayer, 12:39"],
+  ["Sofía Beltrán","722 550 3321","Chatbot para boutique","web","si","Ayer, 11:02"],
+  ["Autopartes RM","55 9037 1145","Cotizaciones por WhatsApp","wa","no","2 días, 19:24"],
+  ["Colegio San Marcos","722 118 7756","Informes de inscripción","web","si","2 días, 16:50"],
+  ["Verónica Salas","55 6642 0098","Info para spa","msg","si","2 días, 14:12"],
+];
+
+const body = document.getElementById('leadsBody');
+const tagMap = {web:['Web','web'],wa:['WhatsApp','wa'],msg:['Messenger','msg']};
+leads.forEach(l=>{
+  const [name,tel,interes,canal,intr,fecha]=l;
+  const [tlabel,tcls]=tagMap[canal];
+  const tr=document.createElement('tr');
+  tr.innerHTML=`
+    <td><span class="lead-name">${name}</span></td>
+    <td class="mono">${tel}</td>
+    <td>${interes}</td>
+    <td><span class="tag ${tcls}">${tlabel}</span></td>
+    <td>${intr==='si'?'<span class="badge si"><span class="d"></span>Sí, me interesa</span>':'<span class="badge no"><span class="d"></span>Solo info</span>'}</td>
+    <td class="mono">${fecha}</td>`;
+  body.appendChild(tr);
+});
+
+// ---- Gráficas ----
+const gridColor='rgba(255,255,255,.06)', tickColor='#8ea0bd';
+Chart.defaults.font.family="'Inter',sans-serif";
+Chart.defaults.color=tickColor;
+
+// línea
+new Chart(document.getElementById('lineChart'),{
+  type:'line',
+  data:{labels:['','','','','','','','','','','','','',''].map((_,i)=>`${i+1}`),
+    datasets:[{data:[8,12,10,15,14,19,17,22,20,26,24,31,28,34],
+      borderColor:'#00d4ff',borderWidth:2.5,tension:.4,fill:true,pointRadius:0,pointHoverRadius:5,
+      backgroundColor:(ctx)=>{const g=ctx.chart.ctx.createLinearGradient(0,0,0,260);g.addColorStop(0,'rgba(0,212,255,.28)');g.addColorStop(1,'rgba(0,212,255,0)');return g;}}]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
+    scales:{x:{grid:{display:false},ticks:{display:false}},y:{grid:{color:gridColor},ticks:{color:tickColor,stepSize:10},beginAtZero:true}}}
+});
+
+// dona
+new Chart(document.getElementById('donutChart'),{
+  type:'doughnut',
+  data:{labels:['Web','WhatsApp','Messenger'],
+    datasets:[{data:[128,84,35],backgroundColor:['#00d4ff','#3ddc84','#a892ff'],borderColor:'#0f1a2e',borderWidth:3,hoverOffset:6}]},
+  options:{responsive:true,maintainAspectRatio:false,cutout:'64%',
+    plugins:{legend:{position:'bottom',labels:{padding:16,usePointStyle:true,pointStyle:'circle',color:'#8ea0bd',font:{size:12}}}}}
+});
+
+// filtros (solo visual en demo)
+document.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>{
+  document.querySelectorAll('.chip').forEach(x=>x.classList.remove('active'));
+  c.classList.add('active');
+}));
+
+function exportCSV(){
+  const rows=[['Prospecto','Telefono','Interes','Canal','Interesado','Fecha'],...leads.map(l=>[l[0],l[1],l[2],tagMap[l[3]][0],l[4]==='si'?'Si':'Solo info',l[5]])];
+  const csv='\uFEFF'+rows.map(r=>r.map(c=>`"${c}"`).join(',')).join('\n');
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));
+  a.download='leads-demo.csv';a.click();
+}
+</script>
+</body>
+</html>
