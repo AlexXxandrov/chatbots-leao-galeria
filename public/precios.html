@@ -140,11 +140,16 @@
   @media(max-width:480px){.addon-grid{grid-template-columns:1fr}}
   .addon{
     background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 16px;
-    display:flex;justify-content:space-between;align-items:center;gap:12px;transition:border-color .2s;
+    display:flex;justify-content:space-between;align-items:flex-start;gap:12px;transition:border-color .2s;
   }
   .addon:hover{border-color:rgba(57,255,20,.35)}
   .addon .name{font-size:14px;font-weight:500}
+  .addon .name em{display:block;font-style:normal;font-weight:400;font-size:11.5px;color:var(--muted,#8ea0bd);margin-top:2px;line-height:1.35}
   .addon .cost{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14px;color:var(--neon);white-space:nowrap}
+  .addon .cost small{font-size:10px;color:var(--muted,#8ea0bd);font-weight:500}
+  .addon-monthly{border-color:rgba(57,255,20,.3);background:rgba(57,255,20,.04)}
+  .addon-note{max-width:760px;margin:18px auto 0;text-align:center;color:var(--muted,#8ea0bd);font-size:.86rem;line-height:1.55}
+  .addon-note b{color:#eaf0fb}
 
   /* ---------- Nota terceros ---------- */
   /* ---------- Dashboard de muestra ---------- */
@@ -356,16 +361,24 @@
     <div class="sec-head">
       <span class="eyebrow">Súmale poder</span>
       <h2>Módulos opcionales</h2>
-      <p>Agrégalos a cualquier plan cuando los necesites. Precio mensual.</p>
+      <p>Agrégalos a cualquier plan cuando los necesites. Cada uno indica si es pago único o mensual.</p>
     </div>
     <div class="addon-grid">
+      <div class="addon"><span class="name">Integración con WhatsApp Business <em>(número propio)</em></span><span class="cost">+$600</span></div>
+      <div class="addon"><span class="name">Cotizador automático <em>(calcula precios según lo que pida el cliente)</em></span><span class="cost">+$700</span></div>
+      <div class="addon"><span class="name">Entrenamiento con tus documentos <em>(PDF, catálogo, FAQ)</em></span><span class="cost">+$500</span></div>
+      <div class="addon"><span class="name">Botón "hablar con un humano" <em>(transfiere a un agente)</em></span><span class="cost">+$400</span></div>
+      <div class="addon"><span class="name">Análisis de sentimiento <em>(marca clientes molestos)</em></span><span class="cost">+$400</span></div>
       <div class="addon"><span class="name">Recordatorios automáticos</span><span class="cost">+$300</span></div>
       <div class="addon"><span class="name">Agenda con Google Calendar</span><span class="cost">+$400</span></div>
       <div class="addon"><span class="name">Envío de catálogo / PDF</span><span class="cost">+$300</span></div>
       <div class="addon"><span class="name">Reportes avanzados</span><span class="cost">+$400</span></div>
       <div class="addon"><span class="name">Segundo idioma</span><span class="cost">+$300</span></div>
       <div class="addon"><span class="name">Auto-respuesta en comentarios FB/IG</span><span class="cost">+$500</span></div>
+      <div class="addon"><span class="name">Dominio personalizado para tu chatbot <em>(ej. bot.tunegocio.com)</em></span><span class="cost">Variable</span></div>
+      <div class="addon addon-monthly"><span class="name">Mantenimiento y ajustes del bot <em>(cambios en precios, servicios y forma de responder)</em></span><span class="cost">+$300<small>/mes</small></span></div>
     </div>
+    <p class="addon-note">Los módulos son de pago único salvo el <b>Mantenimiento</b> (mensual) y el <b>Dominio personalizado</b>, cuyo costo depende del dominio y plan que elijas.</p>
   </section>
 
   <!-- ============ CIERRE ============ -->
